@@ -1,4 +1,5 @@
 const CompressionPlugin = require('compression-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = (env, { mode }) => {
@@ -32,11 +33,14 @@ module.exports = (env, { mode }) => {
 	}
 	if (mode === 'development') {
 		config.devtool = 'cheap-module-eval-source-map'
+		config.output = { publicPath: '/' }
+		config.devServer = { historyApiFallback: true }
 	}
 	if (mode === 'production') {
 		config.devtool = 'cheap-module-source-map'
 		config.plugins.push(
-			new CompressionPlugin()
+			new CompressionPlugin(),
+			new CopyWebpackPlugin([{ from: './_redirects', to: '_redirects', toType: 'file' }])
 		)
 	}
 	return config

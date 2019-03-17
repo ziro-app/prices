@@ -1,3 +1,4 @@
+const WebpackPwaManifest = require('webpack-pwa-manifest')
 const CompressionPlugin = require('compression-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -39,6 +40,15 @@ module.exports = (env, { mode }) => {
 	if (mode === 'production') {
 		config.devtool = 'cheap-module-source-map'
 		config.plugins.push(
+			new WebpackPwaManifest({
+				name: 'Ziro Preços',
+				short_name: 'Preços',
+				start_url: '/',
+				background_color: '#FFF',
+				theme_color: '#FFF',
+				display: 'standalone',
+				icons: [{ src: './logo.png', sizes: [96, 128, 192, 256, 384, 512] }]
+			}),
 			new CompressionPlugin(),
 			new CopyWebpackPlugin([{ from: './_redirects', to: '_redirects', toType: 'file' }])
 		)

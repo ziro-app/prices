@@ -2,6 +2,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 /* import components */
+import InputWrapper from './InputWrapper/index'
 import Dropdown from '@ziro/dropdown'
 import { body, input, subtitle, name } from './styles'
 

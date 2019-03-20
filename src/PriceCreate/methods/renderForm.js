@@ -1,8 +1,8 @@
 import React from 'react'
-// import Form from '../Form/index'
+import Form from '../Form/index'
 import Header from '../../Header/index'
-// import Spinner from '../../Spinner/index'
-// import ErrorOnFetch from '../../ErrorOnFetch/index'
+import Spinner from '../../Spinner/index'
+import ErrorOnFetch from '../../ErrorOnFetch/index'
 
 const renderForm = that => uiState => {
 	const componentToRender = {
@@ -17,7 +17,7 @@ const renderForm = that => uiState => {
 			<ErrorOnFetch />
 	}
 	const ui = uiState !== 'fetching' && uiState !== 'error_fetching' ? 'default' : uiState
-	return <Header title='Cadastrar retirada'>{componentToRender[ui]}</Header>
+	return <Header title='Fabricante'>{componentToRender[ui]}</Header>
 }
 
 export default renderForm

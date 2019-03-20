@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import ErrorBoundary from '../ErrorBoundary/index'
 import NotFound from '../NotFound/index'
+import Header from '../Header/index'
 
 const App = () =>
 	<ErrorBoundary>
@@ -9,7 +10,7 @@ const App = () =>
 			<Switch>
 				<Route
 					exact path='/'
-					render={() => <div>Hello</div>}
+					render={() => <Header title='Fabricante'><div>Hello</div></Header>}
 				/>
 				<Route component={NotFound} />
 			</Switch>

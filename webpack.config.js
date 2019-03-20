@@ -2,6 +2,7 @@ const WebpackPwaManifest = require('webpack-pwa-manifest')
 const CompressionPlugin = require('compression-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
 
 module.exports = (env, { mode }) => {
 	const config = {

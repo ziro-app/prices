@@ -36,6 +36,14 @@ module.exports = (env, { mode }) => {
 		config.devtool = 'cheap-module-eval-source-map'
 		config.output = { publicPath: '/' }
 		config.devServer = { historyApiFallback: true }
+		const { data_url } = require('./credentials')
+		config.plugins.push(
+			new webpack.DefinePlugin({
+				'process.env': {
+					DATA_SHEET_URL: JSON.stringify(data_url)
+				}
+			})
+		)
 	}
 	if (mode === 'production') {
 		config.devtool = 'cheap-module-source-map'
@@ -50,7 +58,12 @@ module.exports = (env, { mode }) => {
 				icons: [{ src: './logo.png', sizes: [96, 128, 192, 256, 384, 512] }]
 			}),
 			new CompressionPlugin(),
-			new CopyWebpackPlugin([{ from: './_redirects', to: '_redirects', toType: 'file' }])
+			new CopyWebpackPlugin([{ from: './_redirects', to: '_redirects', toType: 'file' }]),
+			new webpack.DefinePlugin({
+				'process.env': {
+					DATA_SHEET_URL: JSON.stringify(process.env.DATA_SHEET_URL)
+				}
+			})
 		)
 	}
 	return config

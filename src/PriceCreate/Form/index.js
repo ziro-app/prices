@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 /* import components */
 import InputWrapper from './InputWrapper/index'
 import Dropdown from '@ziro/dropdown'
+import Footer from './Footer/index'
 import { body, input } from './styles'
 
 const Form = ({ state, updateDropdown }) => {
@@ -29,6 +30,7 @@ const Form = ({ state, updateDropdown }) => {
 					/>
 				)}
 			/>
+			<Footer />
 		</div>
 	)
 }

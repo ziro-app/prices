@@ -13,6 +13,7 @@ export default class PriceCreate extends Component {
 		/* initial ui state */
 		uiState: initialUiState,
 		/* dropdown data */
+		products: [],
 		suppliers: [],
 		/* user inputs */
 		supplier: '',

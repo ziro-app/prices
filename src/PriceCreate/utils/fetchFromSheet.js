@@ -12,8 +12,7 @@ const fetchFromSheet = async (get, cancelTokenSource) => {
 	const products = getProducts(values,3)
 	console.log(products)
 	const suppliers = getSuppliers(values,3)
-	console.log(suppliers)
-	return { suppliers }
+	return { products, suppliers }
 }
 
 export default fetchFromSheet

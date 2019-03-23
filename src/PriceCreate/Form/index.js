@@ -30,7 +30,13 @@ const Form = ({ state, updateDropdown }) => {
 					/>
 				)}
 			/>
-			<Footer />
+			<Footer
+				navigation={[
+					{ page: 'first', labelSecondary: 'Compartilhar', labelPrimary: 'Próximo' },
+					{ page: 'middle', labelSecondary: 'Anterior', labelPrimary: 'Próximo' },
+					{ page: 'last', labelSecondary: 'Anterior', labelPrimary: 'Enviar' }
+				]}
+			/>
 		</div>
 	)
 }

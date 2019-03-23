@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { container, secondary, primary } from './styles'
 
 const Footer = ({ navigation }) => {
@@ -9,6 +10,10 @@ const Footer = ({ navigation }) => {
 			<input type='submit' style={primary} value={labelPrimary} />
 		</div>
 	)
+}
+
+Footer.propTypes = {
+	navigation: PropTypes.array.isRequired
 }
 
 export default Footer

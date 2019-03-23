@@ -1,3 +1,5 @@
+import { getProducts, getSuppliers } from './getOptions'
+
 const fetchFromSheet = async (get, cancelTokenSource) => {
 	const { data: { values } } = await get(
 		`${process.env.DATA_SHEET_URL}`,
@@ -7,7 +9,10 @@ const fetchFromSheet = async (get, cancelTokenSource) => {
 		await Promise.reject('Error at fetchFromSheet. values is undefined')
 	if (values.length === 0)
 		await Promise.reject('Error at fetchFromSheet. values.length === 0')
-	const suppliers = values.map(value => value[3]).slice(1).filter(value => Boolean(value[0]))
+	const products = getProducts(values,3)
+	console.log(products)
+	const suppliers = getSuppliers(values,3)
+	console.log(suppliers)
 	return { suppliers }
 }
 

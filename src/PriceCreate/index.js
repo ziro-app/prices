@@ -4,6 +4,7 @@ import { CancelToken } from 'axios'
 /* import methods */
 import { initialUiState, changeUiState } from './methods/stateMachine'
 import fetchInitialData from './methods/fetchInitialData'
+import updateIndex from './methods/updateIndex'
 import updateDropdown from './methods/updateDropdown'
 // import submitForm from './methods/submitForm'
 import renderForm from './methods/renderForm'
@@ -25,6 +26,7 @@ export default class PriceCreate extends Component {
 	cancelTokenSource = CancelToken.source()
 	changeUiState = changeUiState(this)
 	fetchInitialData = fetchInitialData(this)
+	updateIndex = updateIndex(this)
 	updateDropdown = updateDropdown(this)
 	// submitForm = submitForm(this)
 	renderForm = renderForm(this)

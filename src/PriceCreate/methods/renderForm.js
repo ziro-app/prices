@@ -10,6 +10,7 @@ const renderForm = that => uiState => {
 		default:
 			<Form
 				state={that.state}
+				updateIndex={that.updateIndex}
 				updateDropdown={that.updateDropdown}
 				params={params}
 				url={url}

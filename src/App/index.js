@@ -8,10 +8,8 @@ const App = () =>
 	<ErrorBoundary>
 		<Router>
 			<Switch>
-				<Route
-					exact path='/'
-					render={() => <PriceCreate />}
-				/>
+				<Route exact path='/' component={PriceCreate} />
+				<Route path='/:supplier/:product' component={PriceCreate} />
 				<Route component={NotFound} />
 			</Switch>
 		</Router>

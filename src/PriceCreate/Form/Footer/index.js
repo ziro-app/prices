@@ -3,22 +3,30 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { container, secondary, primary } from './styles'
 
-const Footer = ({ navigation, params, url, state }) => {
-	const { labelSecondary, labelPrimary } = navigation.find(({ page }) => page === 'first')
+const Footer = ({ state: { supplier, products, pageIndex } }) => {
+	const { prev, next } = products[pageIndex]
+	const labelSecondary = prev ? 'Anterior' : 'Compartilhar'
+	const labelPrimary = next ? 'Próximo' : 'Enviar'
+	let prevLink
+	if (pageIndex === 0)
+		prevLink = 'share-url' /* add later */
+	else
+		prevLink = prev ? `/${supplier}/${prev}` : '/'
+	const nextLink = next ? `/${supplier}/${next}` : '#'
 	return (
 		<div style={container}>
-			<Link to={`/${params.supplier}`}>
+			<Link to={prevLink}>
 				<input type='submit' style={secondary} value={labelSecondary} />
 			</Link>
-			<input type='submit' style={primary} value={labelPrimary} />
+			<Link to={nextLink}>
+				<input type='submit' style={primary} value={labelPrimary} />
+			</Link>
 		</div>
 	)
 }
 
 Footer.propTypes = {
-	navigation: PropTypes.array.isRequired,
-	params: PropTypes.object.isRequired,
-	url: PropTypes.string.isRequired
+	state: PropTypes.object.isRequired
 }
 
 export default Footer

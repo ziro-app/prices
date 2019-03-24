@@ -15,10 +15,10 @@ const Footer = ({ state: { supplier, products, pageIndex }, updateIndex }) => {
 	const nextLink = next ? `/${supplier}/${next}` : '#'
 	return (
 		<div style={container}>
-			<Link to={prevLink}>
+			<Link to={prevLink} onClick={updateIndex.bind(null, 'prev')}>
 				<input type='submit' style={secondary} value={labelSecondary} />
 			</Link>
-			<Link to={nextLink} onClick={updateIndex}>
+			<Link to={nextLink} onClick={updateIndex.bind(null, 'next')}>
 				<input type='submit' style={primary} value={labelPrimary} />
 			</Link>
 		</div>

@@ -4,12 +4,12 @@ import PropTypes from 'prop-types'
 import { container, secondary, primary } from './styles'
 
 const Footer = ({ state: { supplier, products, pageIndex }, updateIndex }) => {
+	const labelSecondary = pageIndex === 0 ? 'Compartilhar' : 'Anterior'
+	const labelPrimary = pageIndex === products.length - 1 ? 'Enviar' : 'Próximo'
 	const { prev, next } = products[pageIndex]
-	const labelSecondary = prev ? 'Anterior' : 'Compartilhar'
-	const labelPrimary = next ? 'Próximo' : 'Enviar'
 	let prevLink
 	if (pageIndex === 0)
-		prevLink = 'share-url' /* add later */
+		prevLink = '#'
 	else
 		prevLink = prev ? `/${supplier}/${prev}` : '/'
 	const nextLink = next ? `/${supplier}/${next}` : '#'

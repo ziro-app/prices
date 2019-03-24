@@ -11,13 +11,14 @@ const Footer = ({ state: { supplier, suppliers, products, pageIndex }, updateInd
 	const { prev, next } = products[pageIndex]
 	const prevLink = prev ? `/${supplier}/${prev}` : '/'
 	const nextLink = next ? `/${supplier}/${next}` : '#'
-	// const back = pageIndex === 0 || supplier
+	const back = pageIndex === 0 || !supplierIsValid ? '#' : prevLink
+	const forward = supplierIsValid ? nextLink : '#'
 	return (
 		<div style={container}>
-			<Link to={pageIndex === 0 ? '#' : prevLink} onClick={updateIndex.bind(null, 'prev')}>
+			<Link to={back} onClick={updateIndex.bind(null, 'prev', supplierIsValid)}>
 				<input type='submit' style={secondary} value={labelSecondary} />
 			</Link>
-			<Link to={nextLink} onClick={updateIndex.bind(null, 'next')}>
+			<Link to={forward} onClick={updateIndex.bind(null, 'next', supplierIsValid)}>
 				<input type='submit' style={primary} value={labelPrimary} />
 			</Link>
 		</div>

@@ -14,7 +14,7 @@ getProducts = (data, index) => {
 			return [...value, `${next[index - 1][0]}-${next[index - 1][4]}`]
 		return [...value, '']
 	})
-	return prev.map(value => ({
+	const products = prev.map(value => ({
 		name: value[0],
 		type: value[4],
 		prev: value[6],
@@ -23,6 +23,16 @@ getProducts = (data, index) => {
 		max: value[2],
 		step: value[3]
 	}))
+	const supplier = {
+		name: 'fabricante',
+		type: '',
+		prev: '',
+		next: `${products[0].name}-${products[0].type}`,
+		min: '',
+		max: '',
+		step: ''
+	}
+	return [supplier, ...products]
 },
 
 getSuppliers = (data, index) =>

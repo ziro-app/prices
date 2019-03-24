@@ -8,7 +8,7 @@ import { body } from './styles'
 
 const Form = ({ state, updateDropdown, params, url }) =>
 	<div style={body}>
-		<Questions state={state} updateDropdown={updateDropdown} />
+		<Questions params={params} url={url} state={state} updateDropdown={updateDropdown} />
 		<Footer params={params} url={url} navigation={[
 			{ page: 'first', labelSecondary: 'Compartilhar', labelPrimary: 'Próximo' },
 			{ page: 'middle', labelSecondary: 'Anterior', labelPrimary: 'Próximo' },

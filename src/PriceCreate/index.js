@@ -12,6 +12,7 @@ export default class PriceCreate extends Component {
 	state = {
 		/* initial ui state */
 		uiState: initialUiState,
+		pageIndex: 0,
 		/* dropdown data */
 		products: [],
 		suppliers: [],

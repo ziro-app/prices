@@ -7,15 +7,11 @@ const Footer = ({ state: { supplier, products, pageIndex }, updateIndex }) => {
 	const labelSecondary = pageIndex === 0 ? 'Compartilhar' : 'Anterior'
 	const labelPrimary = pageIndex === products.length - 1 ? 'Enviar' : 'Próximo'
 	const { prev, next } = products[pageIndex]
-	let prevLink
-	if (pageIndex === 0)
-		prevLink = '#'
-	else
-		prevLink = prev ? `/${supplier}/${prev}` : '/'
+	const prevLink = prev ? `/${supplier}/${prev}` : '/'
 	const nextLink = next ? `/${supplier}/${next}` : '#'
 	return (
 		<div style={container}>
-			<Link to={prevLink} onClick={updateIndex.bind(null, 'prev')}>
+			<Link to={pageIndex === 0 ? '#' : prevLink} onClick={updateIndex.bind(null, 'prev')}>
 				<input type='submit' style={secondary} value={labelSecondary} />
 			</Link>
 			<Link to={nextLink} onClick={updateIndex.bind(null, 'next')}>
@@ -26,7 +22,8 @@ const Footer = ({ state: { supplier, products, pageIndex }, updateIndex }) => {
 }
 
 Footer.propTypes = {
-	state: PropTypes.object.isRequired
+	state: PropTypes.object.isRequired,
+	updateIndex: PropTypes.func.isRequired
 }
 
 export default Footer

@@ -9,7 +9,7 @@ const App = () =>
 		<Router>
 			<Switch>
 				<Route exact path='/' component={PriceCreate} />
-				<Route path='/:supplier/:product' component={PriceCreate} />
+				<Route exact path='/:supplier/:product' component={PriceCreate} />
 				<Route component={NotFound} />
 			</Switch>
 		</Router>

@@ -5,11 +5,14 @@ import Spinner from '../../Spinner/index'
 import ErrorOnFetch from '../../ErrorOnFetch/index'
 
 const renderForm = that => uiState => {
+	const { match: { params, url } } = that.props
 	const componentToRender = {
 		default:
 			<Form
 				state={that.state}
 				updateDropdown={that.updateDropdown}
+				params={params}
+				url={url}
 			/>,
 		fetching:
 			<Spinner size={'8rem'} />,

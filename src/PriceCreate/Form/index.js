@@ -6,10 +6,10 @@ import Questions from './Questions/index'
 import Footer from './Footer/index'
 import { body } from './styles'
 
-const Form = ({ state, updateDropdown }) =>
+const Form = ({ state, updateDropdown, params, url }) =>
 	<div style={body}>
 		<Questions state={state} updateDropdown={updateDropdown} />
-		<Footer navigation={[
+		<Footer params={params} url={url} navigation={[
 			{ page: 'first', labelSecondary: 'Compartilhar', labelPrimary: 'Próximo' },
 			{ page: 'middle', labelSecondary: 'Anterior', labelPrimary: 'Próximo' },
 			{ page: 'last', labelSecondary: 'Anterior', labelPrimary: 'Enviar' }
@@ -18,7 +18,9 @@ const Form = ({ state, updateDropdown }) =>
 
 Form.propTypes = {
 	state: PropTypes.object.isRequired,
-	updateDropdown: PropTypes.func.isRequired
+	updateDropdown: PropTypes.func.isRequired,
+	params: PropTypes.object.isRequired,
+	url: PropTypes.string.isRequired
 }
 
 export default Form

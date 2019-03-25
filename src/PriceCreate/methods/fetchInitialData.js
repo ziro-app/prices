@@ -3,7 +3,9 @@ import fetchFromSheet from '../utils/fetchFromSheet'
 
 const fetchInitialData = that => async () => {
 	try {
-		that.setState(await fetchFromSheet(get, that.cancelTokenSource))
+		// get initial route from react-router params
+		const { match: { params: { product } } } = that.props
+		that.setState(await fetchFromSheet(get, that.cancelTokenSource, product))
 		that.changeUiState('SUCCESS')
 	} catch (error) {
 		if (isCancel(error))

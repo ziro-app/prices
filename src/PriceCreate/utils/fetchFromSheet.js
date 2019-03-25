@@ -12,7 +12,9 @@ const fetchFromSheet = async (get, cancelTokenSource, product, supplier) => {
 	const products = getProducts(values, 3)
 	const suppliers = getSuppliers(values, 3)
 	const pageIndex = products.findIndex(({ next }) => next === product) + 1
-	return { products, suppliers, pageIndex, supplier }
+	if (supplier)
+		return { products, suppliers, pageIndex, supplier }
+	return { products, suppliers, pageIndex }
 }
 
 export default fetchFromSheet

@@ -36,4 +36,7 @@ getProducts = (data, index) => {
 },
 
 getSuppliers = (data, index) =>
-	data.map(value => value[index]).slice(1).filter(value => Boolean(value[0]))
+	data.map(value => value[index]).slice(1).filter(value => Boolean(value[0])),
+
+getIndex = (products, product) =>
+	products.findIndex(({ next }) => next === product) + 1

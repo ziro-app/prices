@@ -1,4 +1,4 @@
-import { getProducts, getSuppliers } from './getOptions'
+import { getProducts, getSuppliers, getIndex } from './getOptions'
 
 const fetchFromSheet = async (get, cancelTokenSource, product, supplier) => {
 	const { data: { values } } = await get(
@@ -11,7 +11,7 @@ const fetchFromSheet = async (get, cancelTokenSource, product, supplier) => {
 		await Promise.reject('Error at fetchFromSheet. values.length === 0')
 	const products = getProducts(values, 3)
 	const suppliers = getSuppliers(values, 3)
-	const pageIndex = products.findIndex(({ next }) => next === product) + 1
+	const pageIndex = getIndex(products, product)
 	if (supplier)
 		return { products, suppliers, pageIndex, supplier }
 	return { products, suppliers, pageIndex }

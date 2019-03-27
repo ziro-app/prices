@@ -1,18 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { optionIsValid } from '../../utils/validateFields'
+import getRenderVariables from '../../utils/getRenderVariables'
 import { container, secondary, primary } from './styles'
 
-const Footer = ({ state: { supplier, suppliers, products, pageIndex }, updateIndex }) => {
-	const supplierIsValid = optionIsValid(suppliers, supplier)
-	const labelSecondary = pageIndex === 0 ? 'Compartilhar' : 'Anterior'
-	const labelPrimary = pageIndex === products.length - 1 ? 'Enviar' : 'Próximo'
-	const { prev, next } = products[pageIndex]
-	const prevLink = prev ? `/${supplier}/${prev}` : '/'
-	const nextLink = next ? `/${supplier}/${next}` : '#'
-	const back = pageIndex === 0 || !supplierIsValid ? '#' : prevLink
-	const forward = supplierIsValid ? nextLink : '#'
+const Footer = ({ state, updateIndex }) => {
+	const { labelSecondary, labelPrimary, back, forward, supplierIsValid } = getRenderVariables(state)
 	return (
 		<div style={container}>
 			<Link to={back} onClick={updateIndex.bind(null, 'prev', supplierIsValid)}>

@@ -21,7 +21,12 @@ const renderForm = that => uiState => {
 			<ErrorOnFetch />
 	}
 	const ui = uiState !== 'fetching' && uiState !== 'error_fetching' ? 'default' : uiState
-	return <Header title='FABRICANTE'>{componentToRender[ui]}</Header>
+	const pageIndex = that.state.pageIndex
+	const product = that.state.products[pageIndex]
+	let title = ''
+	if (product)
+		title = `${product.name} ${product.type}`.toUpperCase()
+	return <Header title={title}>{componentToRender[ui]}</Header>
 }
 
 export default renderForm

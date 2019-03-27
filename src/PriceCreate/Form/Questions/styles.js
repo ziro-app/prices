@@ -14,4 +14,11 @@ input = {
 	textIndent: '25px',
 	color: 'rgba(48,62,77,0.8)',
 	fontWeight: '700'
+},
+
+container = {
+	display: 'grid',
+	gridTemplateColumns: '1fr 1fr',
+	fontSize: '1.6rem',
+	color: 'rgba(48,62,77,0.8)'
 }

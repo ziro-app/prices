@@ -8,6 +8,8 @@ import { input } from './styles'
 
 const Questions = ({ state, updateDropdown, params, url }) => {
 	const { uiState, suppliers, supplier, error_supplier, products, pageIndex } = state
+	const { name, type, options } = products[pageIndex]
+	const id = `${name}-${type}`
 	if (url === '/')
 		return (
 			<InputWrapper uiState={uiState} errorMessage={error_supplier}
@@ -30,10 +32,10 @@ const Questions = ({ state, updateDropdown, params, url }) => {
 			/>
 		)
 	return (
-		products[pageIndex].options.map(option =>
-			<div key={option}>
-				<input type='radio' id={option} name={products[pageIndex].name} value={option} />
-				<label htmlFor={option}>{option}</label>
+		options.map((option, index) =>
+			<div key={`${id}-${index}`}>
+				<input type='radio' id={`${id}-${option}`} name={id} value={option} />
+				<label htmlFor={`${id}-${option}`}>{option}</label>
 			</div>
 		)
 	)

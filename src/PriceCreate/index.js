@@ -6,6 +6,7 @@ import { initialUiState, changeUiState } from './methods/stateMachine'
 import fetchInitialData from './methods/fetchInitialData'
 import updateIndex from './methods/updateIndex'
 import updateDropdown from './methods/updateDropdown'
+import updateQuestion from './methods/updateQuestion'
 // import submitForm from './methods/submitForm'
 import renderForm from './methods/renderForm'
 
@@ -28,6 +29,7 @@ export default class PriceCreate extends Component {
 	fetchInitialData = fetchInitialData(this)
 	updateIndex = updateIndex(this)
 	updateDropdown = updateDropdown(this)
+	updateQuestion = updateQuestion(this)
 	// submitForm = submitForm(this)
 	renderForm = renderForm(this)
 	/*-- lifecycle --*/

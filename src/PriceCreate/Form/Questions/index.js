@@ -45,6 +45,7 @@ export default class Questions extends Component {
 							name={id}
 							value={option}
 							onChange={this.handleChange.bind(null, id)}
+							checked={parseFloat(this.props.state[id]) === option}
 						/>
 						<label htmlFor={`${id}-${option}`}>{option}</label>
 					</div>

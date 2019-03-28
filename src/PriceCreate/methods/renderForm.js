@@ -12,7 +12,6 @@ const renderForm = that => uiState => {
 				state={that.state}
 				updateIndex={that.updateIndex}
 				updateDropdown={that.updateDropdown}
-				params={params}
 				url={url}
 			/>,
 		fetching:

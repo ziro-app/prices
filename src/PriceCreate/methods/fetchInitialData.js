@@ -5,7 +5,14 @@ const fetchInitialData = that => async () => {
 	try {
 		// get initial route from react-router params
 		const { match: { params: { product, supplier } } } = that.props
-		that.setState(await fetchFromSheet(get, that.cancelTokenSource, product, supplier))
+		that.setState(
+			await fetchFromSheet(get, that.cancelTokenSource, product, supplier),
+			() => {
+				const products = that.state.products.slice(1)
+				for (let i = 0; i < products.length; i++)
+					that.setState({ [`${products[i].name}-${products[i].type}`]: '' })
+			}
+		)
 		that.changeUiState('SUCCESS')
 	} catch (error) {
 		if (isCancel(error))

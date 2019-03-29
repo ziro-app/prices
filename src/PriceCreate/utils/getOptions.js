@@ -13,9 +13,14 @@ getProducts = (data, index) => {
 		return [...value, optionsArray]
 	}).sort()
 	const minMax = [...options.map(value => [...value, 'min']), ...options.map(value => [...value, 'max'])].sort()
-	const next = minMax.map((value, index) => {
-		if (minMax[index + 1])
-			return [...value, `${minMax[index + 1][0]}-${minMax[index + 1][4]}`]
+	const minFirst = minMax.map((value, index) => {
+		if (index % 2 === 0)
+			return minMax[index + 1]
+		return minMax[index - 1]
+	})
+	const next = minFirst.map((value, index) => {
+		if (minFirst[index + 1])
+			return [...value, `${minFirst[index + 1][0]}-${minFirst[index + 1][4]}`]
 		return [...value, '']
 	})
 	const prev = next.map((value, index) => {

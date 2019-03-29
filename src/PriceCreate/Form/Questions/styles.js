@@ -17,8 +17,8 @@ input = {
 },
 
 container = {
-	display: 'grid',
-	gridTemplateColumns: '1fr 1fr',
+	columnCount: '2',
+	textAlign: 'center',
 	fontSize: '1.6rem',
 	color: 'rgba(48,62,77,0.8)'
 }

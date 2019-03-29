@@ -35,9 +35,11 @@ export default class Questions extends Component {
 			)
 		const { name, type, options } = products[pageIndex]
 		const id = `${name}-${type}`
+		const question = this.props.state[id] === 'N/A' ? 'N/A' : parseFloat(this.props.state[id])
+		const optionsList = [...options, 'N/A']
 		return (
 			<div style={container}>
-				{options.map((option, index) =>
+				{optionsList.map((option, index) =>
 					<div key={`${id}-${index}`}>
 						<input
 							type='radio'
@@ -45,7 +47,7 @@ export default class Questions extends Component {
 							name={id}
 							value={option}
 							onChange={this.handleChange.bind(null, id)}
-							checked={parseFloat(this.props.state[id]) === option}
+							checked={question === option}
 						/>
 						<label htmlFor={`${id}-${option}`}>{option}</label>
 					</div>

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 /* import components */
 import InputWrapper from './InputWrapper/index'
 import Dropdown from '@ziro/dropdown'
-import { input, container } from './styles'
+import { input, container, radioSelected, radioNotSelected } from './styles'
 
 export default class Questions extends Component {
 	handleChange = (id, { target: { value } }) => this.props.updateQuestion(id, value)
@@ -42,6 +42,7 @@ export default class Questions extends Component {
 				{optionsList.map((option, index) =>
 					<div key={`${id}-${index}`}>
 						<input
+							style={{ 'display': 'none' }}
 							type='radio'
 							id={`${id}-${option}`}
 							name={id}
@@ -49,7 +50,12 @@ export default class Questions extends Component {
 							onChange={this.handleChange.bind(null, id)}
 							checked={question === option}
 						/>
-						<label htmlFor={`${id}-${option}`}>{option}</label>
+						<label
+							style={question === option ? radioSelected : radioNotSelected}
+							htmlFor={`${id}-${option}`}
+						>
+							{option}
+						</label>
 					</div>
 				)}
 			</div>

@@ -1,10 +1,10 @@
 /* import libraries */
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 /* import components */
 import InputWrapper from './InputWrapper/index'
 import Dropdown from '@ziro/dropdown'
-import { input, container, radioSelected, radioNotSelected } from './styles'
+import { input, container, subtitle, radioSelected, radioNotSelected } from './styles'
 
 export default class Questions extends Component {
 	handleChange = (id, { target: { value } }) => this.props.updateQuestion(id, value)
@@ -38,27 +38,32 @@ export default class Questions extends Component {
 		const question = this.props.state[id] === 'N/A' ? 'N/A' : parseFloat(this.props.state[id])
 		const optionsList = [...options, 'N/A']
 		return (
-			<div style={container}>
-				{optionsList.map((option, index) =>
-					<div key={`${id}-${index}`}>
-						<input
-							style={{ 'display': 'none' }}
-							type='radio'
-							id={`${id}-${option}`}
-							name={id}
-							value={option}
-							onChange={this.handleChange.bind(null, id)}
-							checked={question === option}
-						/>
-						<label
-							style={question === option ? radioSelected : radioNotSelected}
-							htmlFor={`${id}-${option}`}
-						>
-							{option}
-						</label>
-					</div>
-				)}
-			</div>
+			<Fragment>
+				<div style={subtitle}>
+					Qual o {type === 'min' ? 'MENOR' : 'MAIOR'} preço deste produto?
+				</div>
+				<div style={container}>
+					{optionsList.map((option, index) =>
+						<div key={`${id}-${index}`}>
+							<input
+								style={{ 'display': 'none' }}
+								type='radio'
+								id={`${id}-${option}`}
+								name={id}
+								value={option}
+								onChange={this.handleChange.bind(null, id)}
+								checked={question === option}
+							/>
+							<label
+								style={question === option ? radioSelected : radioNotSelected}
+								htmlFor={`${id}-${option}`}
+							>
+								{option}
+							</label>
+						</div>
+					)}
+				</div>
+			</Fragment>
 		)
 	}
 }

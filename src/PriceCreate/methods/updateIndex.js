@@ -1,5 +1,6 @@
 const updateIndex = that => (navigation, supplierIsValid) => {
 	if (supplierIsValid) {
+		that.setState({ error_supplier: '' })
 		const increment = navigation === 'next' ? 1 : -1
 		const newIndex = that.state.pageIndex + increment
 		const maxValue = that.state.products.length - 1
@@ -10,6 +11,8 @@ const updateIndex = that => (navigation, supplierIsValid) => {
 		else if (newIndex > maxValue)
 			that.setState({ pageIndex: maxValue })
 	}
+	else
+		that.setState({ error_supplier: 'Escolha um fabricante válido' })
 }
 
 export default updateIndex

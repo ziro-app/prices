@@ -14,12 +14,16 @@ export default class Questions extends Component {
 		const { uiState, suppliers, supplier, error_supplier, products, pageIndex } = this.props.state
 		const updateDropdown = this.props.updateDropdown
 		const url = this.props.url
-		const params = this.props.params
+		const { product } = this.props.params
 		const supplierIsValid = optionIsValid(suppliers, supplier)
-		console.log(params)
+		const productIsValid = Boolean(products.filter(({ next }) => next === product).length)
 		if (!supplierIsValid)
 			return (
 				<div>Fabricante inválido</div>
+			)
+		if (!productIsValid)
+			return (
+				<div>Produto inválido</div>
 			)
 		if (url === '/')
 			return (

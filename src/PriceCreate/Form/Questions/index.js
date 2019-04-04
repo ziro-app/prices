@@ -1,6 +1,8 @@
 /* import libraries */
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
+/* import utils */
+import { optionIsValid } from '../../utils/validateFields'
 /* import components */
 import InputWrapper from './InputWrapper/index'
 import Dropdown from '@ziro/dropdown'
@@ -12,6 +14,13 @@ export default class Questions extends Component {
 		const { uiState, suppliers, supplier, error_supplier, products, pageIndex } = this.props.state
 		const updateDropdown = this.props.updateDropdown
 		const url = this.props.url
+		const params = this.props.params
+		const supplierIsValid = optionIsValid(suppliers, supplier)
+		console.log(params)
+		if (!supplierIsValid)
+			return (
+				<div>Fabricante inválido</div>
+			)
 		if (url === '/')
 			return (
 				<InputWrapper uiState={uiState} errorMessage={error_supplier}
@@ -72,5 +81,6 @@ Questions.propTypes = {
 	state: PropTypes.object.isRequired,
 	updateDropdown: PropTypes.func.isRequired,
 	updateQuestion: PropTypes.func.isRequired,
+	params: PropTypes.object.isRequired,
 	url: PropTypes.string.isRequired
 }

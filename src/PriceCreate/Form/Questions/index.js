@@ -6,7 +6,7 @@ import { optionIsValid, objectIsValid } from '../../utils/validateFields'
 /* import components */
 import InputWrapper from './InputWrapper/index'
 import Dropdown from '@ziro/dropdown'
-import { input, container, subtitle, radioSelected, radioNotSelected } from './styles'
+import { invalid, input, container, subtitle, radioSelected, radioNotSelected } from './styles'
 
 export default class Questions extends Component {
 	handleChange = (id, { target: { value } }) => this.props.updateQuestion(id, value)
@@ -18,9 +18,9 @@ export default class Questions extends Component {
 		const supplierIsValid = optionIsValid(suppliers, supplier)
 		const productIsValid = objectIsValid(products, product)
 		if (!supplierIsValid)
-			return <div>Fabricante inválido</div>
+			return <div style={invalid}>Fabricante inválido <br/> Verifique URL digitada</div>
 		if (!productIsValid)
-			return <div>Produto inválido</div>
+			return <div style={invalid}>Produto inválido <br/> Verifique URL digitada</div>
 		if (url === '/')
 			return (
 				<InputWrapper uiState={uiState} errorMessage={error_supplier}

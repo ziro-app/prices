@@ -17,10 +17,6 @@ export default class Questions extends Component {
 		const { product } = this.props.params
 		const supplierIsValid = optionIsValid(suppliers, supplier)
 		const productIsValid = objectIsValid(products, product)
-		if (!supplierIsValid)
-			return <div style={invalid}>Fabricante inválido <br/> Verifique URL digitada</div>
-		if (!productIsValid)
-			return <div style={invalid}>Produto inválido <br/> Verifique URL digitada</div>
 		if (url === '/')
 			return (
 				<InputWrapper uiState={uiState} errorMessage={error_supplier}
@@ -42,6 +38,10 @@ export default class Questions extends Component {
 					)}
 				/>
 			)
+		if (!supplierIsValid)
+			return <div style={invalid}>Fabricante inválido <br/> Verifique URL digitada</div>
+		if (!productIsValid)
+			return <div style={invalid}>Produto inválido <br/> Verifique URL digitada</div>
 		const { name, type, options } = products[pageIndex]
 		const id = `${name}-${type}`
 		const question = this.props.state[id] === 'N/A' ? 'N/A' : parseFloat(this.props.state[id])

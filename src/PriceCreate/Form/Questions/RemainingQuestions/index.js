@@ -31,7 +31,11 @@ const RemaniningQuestions = ({ type, options, id, handleChange, question }) =>
 	</Fragment>
 
 RemaniningQuestions.propTypes = {
-
+	type: PropTypes.string.isRequired,
+	options: PropTypes.array.isRequired,
+	id: PropTypes.string.isRequired,
+	handleChange: PropTypes.func.isRequired,
+	question: PropTypes.node.isRequired
 }
 
 export default RemaniningQuestions

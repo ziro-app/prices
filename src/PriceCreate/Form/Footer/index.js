@@ -4,8 +4,12 @@ import PropTypes from 'prop-types'
 import getRenderVariables from '../../utils/getRenderVariables'
 import { container, secondary, primary } from './styles'
 
-const Footer = ({ state, updateIndex }) => {
-	const { labelSecondary, labelPrimary, back, forward, supplierIsValid } = getRenderVariables(state)
+const Footer = ({ state, updateIndex, params: { product } }) => {
+	const {
+		labelSecondary, labelPrimary, back, forward, supplierIsValid, productIsValid
+	} = getRenderVariables(state, product)
+	if (product && (!supplierIsValid || !productIsValid))
+		return null
 	return (
 		<div style={container}>
 			<Link to={back} onClick={updateIndex.bind(null, 'prev', supplierIsValid)}>
@@ -20,7 +24,8 @@ const Footer = ({ state, updateIndex }) => {
 
 Footer.propTypes = {
 	state: PropTypes.object.isRequired,
-	updateIndex: PropTypes.func.isRequired
+	updateIndex: PropTypes.func.isRequired,
+	params: PropTypes.object.isRequired
 }
 
 export default Footer

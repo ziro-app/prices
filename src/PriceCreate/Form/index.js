@@ -18,6 +18,7 @@ const Form = ({ state, updateIndex, updateDropdown, updateQuestion, params, url 
 		<Footer
 			state={state}
 			updateIndex={updateIndex}
+			params={params}
 		/>
 	</div>
 

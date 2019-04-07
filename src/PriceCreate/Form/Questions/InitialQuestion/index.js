@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import InputWrapper from '../InputWrapper/index'
 import Dropdown from '@ziro/dropdown'
 import { input } from './styles'
@@ -22,5 +23,10 @@ const InitialQuestion = ({ state: { uiState, error_supplier, suppliers, supplier
 			/>
 		)}
 	/>
+
+InitialQuestion.propTypes = {
+	state: PropTypes.object.isRequired,
+	updateDropdown: PropTypes.func.isRequired
+}
 
 export default InitialQuestion

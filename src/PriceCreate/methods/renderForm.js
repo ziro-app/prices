@@ -13,6 +13,7 @@ const renderForm = that => uiState => {
 				updateIndex={that.updateIndex}
 				updateDropdown={that.updateDropdown}
 				updateQuestion={that.updateQuestion}
+				updateClipboard={that.updateClipboard}
 				url={url}
 				params={params}
 			/>,

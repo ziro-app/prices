@@ -7,6 +7,7 @@ import fetchInitialData from './methods/fetchInitialData'
 import updateIndex from './methods/updateIndex'
 import updateDropdown from './methods/updateDropdown'
 import updateQuestion from './methods/updateQuestion'
+import updateClipboard from './methods/updateClipboard'
 // import submitForm from './methods/submitForm'
 import renderForm from './methods/renderForm'
 
@@ -30,6 +31,7 @@ export default class PriceCreate extends Component {
 	updateIndex = updateIndex(this)
 	updateDropdown = updateDropdown(this)
 	updateQuestion = updateQuestion(this)
+	updateClipboard = updateClipboard(this)
 	// submitForm = submitForm(this)
 	renderForm = renderForm(this)
 	/*-- lifecycle --*/

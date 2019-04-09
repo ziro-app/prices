@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import getRenderVariables from '../../utils/getRenderVariables'
 import { container, secondary, primary } from './styles'
 
-const Footer = ({ state, updateIndex, params: { product } }) => {
+const Footer = ({ state, updateIndex, updateClipboard, params: { product } }) => {
 	const {
 		labelSecondary, labelPrimary, back, forward, supplierIsValid, productIsValid, pageIndex
 	} = getRenderVariables(state, product)
@@ -12,7 +12,7 @@ const Footer = ({ state, updateIndex, params: { product } }) => {
 		return null
 	return (
 		<div style={container}>
-			<Link to={back} onClick={pageIndex === 0 ? null : updateIndex.bind(null, 'prev', supplierIsValid)}>
+			<Link to={back} onClick={pageIndex === 0 ? updateClipboard : updateIndex.bind(null, 'prev', supplierIsValid)}>
 				<input type='submit' style={secondary} value={labelSecondary} />
 			</Link>
 			<Link to={forward} onClick={updateIndex.bind(null, 'next', supplierIsValid)}>

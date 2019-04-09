@@ -25,6 +25,7 @@ const Footer = ({ state, updateIndex, updateClipboard, params: { product } }) =>
 Footer.propTypes = {
 	state: PropTypes.object.isRequired,
 	updateIndex: PropTypes.func.isRequired,
+	updateClipboard: PropTypes.func.isRequired,
 	params: PropTypes.object.isRequired
 }
 

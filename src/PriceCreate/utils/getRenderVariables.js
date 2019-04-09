@@ -11,7 +11,7 @@ const getRenderVariables = ({ suppliers, supplier, products, pageIndex }, produc
 	const nextLink = next ? `/${removeSpaces(supplier)}/${next}` : '#'
 	const back = pageIndex === 0 || !supplierIsValid ? '#' : prevLink
 	const forward = supplierIsValid ? nextLink : '#'
-	return { labelSecondary, labelPrimary, back, forward, supplierIsValid, productIsValid }
+	return { labelSecondary, labelPrimary, back, forward, supplierIsValid, productIsValid, pageIndex }
 }
 
 export default getRenderVariables

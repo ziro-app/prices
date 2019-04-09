@@ -12,7 +12,7 @@ const Footer = ({ state, updateIndex, updateClipboard, params: { product } }) =>
 		return null
 	return (
 		<div style={container}>
-			<Link to={back} onClick={pageIndex === 0 ? updateClipboard.bind(null, back) : updateIndex.bind(null, 'prev', supplierIsValid)}>
+			<Link to={back} onClick={pageIndex === 0 ? updateClipboard.bind(null, forward) : updateIndex.bind(null, 'prev', supplierIsValid)}>
 				<input type='submit' style={secondary} value={labelSecondary} />
 			</Link>
 			<Link to={forward} onClick={updateIndex.bind(null, 'next', supplierIsValid)}>

@@ -1,6 +1,6 @@
 const updateClipboard = that => async url => {
 	if (url !== '#') {
-		const share = `https://precos.ziro.online${url}`
+		const share = `https://precos.ziro.online${url}?lock=true`
 		const result = await navigator.clipboard.writeText(share)
 		if (result)
 			alert('Erro ao copiar link', result)

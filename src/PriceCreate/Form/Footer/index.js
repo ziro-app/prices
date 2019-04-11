@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import getRenderVariables from '../../utils/getRenderVariables'
 import { container, secondary, primary } from './styles'
 
-const Footer = ({ state, updateIndex, updateClipboard, params: { product } }) => {
+const Footer = ({ state, updateIndex, updateClipboard, params: { product }, search }) => {
 	const {
 		labelSecondary, labelPrimary, back, forward, supplierIsValid, productIsValid, pageIndex
 	} = getRenderVariables(state, product)
@@ -26,7 +26,8 @@ Footer.propTypes = {
 	state: PropTypes.object.isRequired,
 	updateIndex: PropTypes.func.isRequired,
 	updateClipboard: PropTypes.func.isRequired,
-	params: PropTypes.object.isRequired
+	params: PropTypes.object.isRequired,
+	search: PropTypes.string.isRequired
 }
 
 export default Footer

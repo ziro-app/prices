@@ -12,9 +12,11 @@ const Footer = ({ state, updateIndex, updateClipboard, params: { product }, sear
 		return null
 	return (
 		<div style={container}>
-			<Link to={back} onClick={pageIndex === 0 ? updateClipboard.bind(null, forward) : updateIndex.bind(null, 'prev', supplierIsValid)}>
-				<input type='submit' style={secondary} value={labelSecondary} />
-			</Link>
+			{!search &&
+				<Link to={back} onClick={pageIndex === 0 ? updateClipboard.bind(null, forward) : updateIndex.bind(null, 'prev', supplierIsValid)}>
+					<input type='submit' style={secondary} value={labelSecondary} />
+				</Link>
+			}
 			<Link to={forward} onClick={updateIndex.bind(null, 'next', supplierIsValid)}>
 				<input type='submit' style={primary} value={labelPrimary} />
 			</Link>

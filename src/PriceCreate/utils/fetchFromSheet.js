@@ -1,7 +1,7 @@
 import { getProducts, getSuppliers, getIndex } from './getOptions'
 import addSpaces from './addSpaces'
 
-const fetchFromSheet = async (get, cancelTokenSource, product, supplierName) => {
+const fetchFromSheet = async (get, cancelTokenSource, product, supplierName, search) => {
 	const { data: { values } } = await get(
 		`${process.env.DATA_SHEET_URL}`,
 		{ cancelToken: cancelTokenSource.token }
@@ -15,9 +15,9 @@ const fetchFromSheet = async (get, cancelTokenSource, product, supplierName) => 
 	const pageIndex = getIndex(products, product)
 	if (supplierName) {
 		const supplier = addSpaces(supplierName)
-		return { products, suppliers, pageIndex, supplier }
+		return { products, suppliers, pageIndex, search, supplier }
 	}
-	return { products, suppliers, pageIndex }
+	return { products, suppliers, pageIndex, search }
 }
 
 export default fetchFromSheet

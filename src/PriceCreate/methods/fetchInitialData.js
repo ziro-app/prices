@@ -4,9 +4,9 @@ import fetchFromSheet from '../utils/fetchFromSheet'
 const fetchInitialData = that => async () => {
 	try {
 		// get initial route from react-router params
-		const { match: { params: { product, supplier } } } = that.props
+		const { match: { params: { product, supplier } }, location: { search } } = that.props
 		that.setState(
-			await fetchFromSheet(get, that.cancelTokenSource, product, supplier),
+			await fetchFromSheet(get, that.cancelTokenSource, product, supplier, search),
 			() => {
 				const products = that.state.products.slice(1)
 				for (let i = 0; i < products.length; i++)

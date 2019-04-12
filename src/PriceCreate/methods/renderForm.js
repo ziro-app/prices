@@ -5,7 +5,7 @@ import Spinner from '../../Spinner/index'
 import ErrorOnFetch from '../../ErrorOnFetch/index'
 
 const renderForm = that => uiState => {
-	const { match: { params, url }, location: { search } } = that.props
+	const { match: { params, url } } = that.props
 	const componentToRender = {
 		default:
 			<Form
@@ -16,7 +16,6 @@ const renderForm = that => uiState => {
 				updateClipboard={that.updateClipboard}
 				url={url}
 				params={params}
-				search={search}
 			/>,
 		fetching:
 			<Spinner size={'8rem'} />,

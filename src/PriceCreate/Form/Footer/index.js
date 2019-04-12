@@ -6,11 +6,11 @@ import { container, secondary, primary } from './styles'
 
 const Footer = ({ state, updateIndex, updateClipboard, params: { product } }) => {
 	const {
-		labelSecondary, labelPrimary, back, forward, supplierIsValid, productIsValid, pageIndex
+		labelSecondary, labelPrimary, back, forward, supplierIsValid, productIsValid, pageIndex, search
 	} = getRenderVariables(state, product)
 	if (product && (!supplierIsValid || !productIsValid))
 		return null
-	if (state.search && pageIndex === 1)
+	if (search && pageIndex === 1)
 		return (
 			<div style={container}>
 				<Link to={forward} onClick={updateIndex.bind(null, 'next', supplierIsValid)}>

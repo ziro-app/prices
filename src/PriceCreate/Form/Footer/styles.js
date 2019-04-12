@@ -1,6 +1,12 @@
 export const
 
-container = {
+containerOne = {
+	display: 'grid',
+	gridTemplateColumns: '1fr',
+	alignItems: 'flex-end'
+},
+
+containerTwo = {
 	display: 'grid',
 	gridTemplateColumns: '1fr 1fr',
 	gridColumnGap: '10px',

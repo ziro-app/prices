@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import getRenderVariables from '../../utils/getRenderVariables'
-import { container, secondary, primary } from './styles'
+import { containerOne, containerTwo, secondary, primary } from './styles'
 
 const Footer = ({ state, updateIndex, updateClipboard, params: { product } }) => {
 	const {
@@ -12,14 +12,14 @@ const Footer = ({ state, updateIndex, updateClipboard, params: { product } }) =>
 		return null
 	if (search && pageIndex === 1)
 		return (
-			<div style={container}>
+			<div style={containerOne}>
 				<Link to={forward} onClick={updateIndex.bind(null, 'next', supplierIsValid)}>
 					<input type='submit' style={primary} value={labelPrimary} />
 				</Link>
 			</div>
 		)
 	return (
-		<div style={container}>
+		<div style={containerTwo}>
 			<Link to={back} onClick={pageIndex === 0 ? updateClipboard.bind(null, forward) : updateIndex.bind(null, 'prev', supplierIsValid)}>
 				<input type='submit' style={secondary} value={labelSecondary} />
 			</Link>

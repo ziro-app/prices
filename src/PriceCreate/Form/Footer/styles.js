@@ -24,6 +24,8 @@ secondary = {
 	padding: '10px 25px',
 	fontSize: '1.5rem',
 	fontWeight: '700',
+	textOverflow: 'ellipsis',
+	overflow: 'hidden',
 	color: 'rgba(48,62,77,0.8)',
 	backgroundColor: '#FFF'
 },

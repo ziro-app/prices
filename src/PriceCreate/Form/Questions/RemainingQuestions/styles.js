@@ -4,6 +4,20 @@ container = {
 	columnCount: '2'
 },
 
+input = {
+	WebkitAppearance: 'none',
+	MozAppearance: 'none',
+	outline: 'none',
+	border: 'none',
+	borderBottom: '1px solid rgba(48,62,77,0.2)',
+	width: '60%',
+	justifySelf: 'center',
+	fontSize: '1.4rem',
+	textAlign: 'center',
+	color: 'rgba(48,62,77,0.8)',
+	fontWeight: '700'
+},
+
 subtitle = {
 	fontSize: '1.4rem',
 	color: 'rgba(48,62,77,0.8)',

@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { subtitle, container, radioSelected, radioNotSelected } from './styles'
+import { subtitle, input, container, radioSelected, radioNotSelected } from './styles'
 
 const RemaniningQuestions = ({ type, options, id, handleChange, question }) =>
 	<Fragment>
 		<div style={subtitle}>
 			Qual o {type === 'min' ? 'MENOR' : 'MAIOR'} preço deste produto?
 		</div>
+		<input style={input} placeholder='Digite ou selecione abaixo' />
 		<div style={container}>
 			{options.map((option, index) =>
 				<div key={`${id}-${index}`}>

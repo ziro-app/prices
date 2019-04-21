@@ -3,14 +3,15 @@ export const
 getProducts = (data, index) => {
 	const raw = data.map(value => value.slice(0,index)).slice(1).filter(value => Boolean(value[0]))
 	const options = raw.map(value => {
-		const min = parseFloat(value[1])
-		const max = parseFloat(value[2])
+		const min = parseFloat(value[1].replace(',','.'))
+		const max = parseFloat(value[2].replace(',','.'))
 		const step = Math.round((max - min) / 18)
 		let optionsArray = []
 		for (let i = 0; i < 18; i ++)
 			optionsArray.push(min + i * step)
 		optionsArray.push(max)
-		return [...value, optionsArray]
+		const toPortuguese = optionsArray.map(value => value.toString().replace('.',','))
+		return [...value, toPortuguese]
 	}).sort()
 	const minMax = [...options.map(value => [...value, 'min']), ...options.map(value => [...value, 'max'])].sort()
 	const minFirst = minMax.map((value, index) => {

@@ -16,7 +16,7 @@ export default class Questions extends Component {
 		const { name, type, options } = products[pageIndex]
 		const id = `${name}-${type}`
 		const content = this.props.state[id]
-		const question = content === 'N/A' ? 'N/A' : parseFloat(content)
+		const question = content === 'N/A' ? 'N/A' : content
 		const optionsList = [...options, 'N/A']
 		const supplierIsValid = optionIsValid(suppliers, supplier)
 		const productIsValid = objectIsValid(products, product)

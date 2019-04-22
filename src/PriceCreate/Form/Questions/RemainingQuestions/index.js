@@ -20,7 +20,7 @@ export default class RemainingQuestions extends Component {
 					style={input}
 					type='text'
 					placeholder='Digite ou selecione abaixo'
-					value={openField}
+					value={question}
 					onChange={this.handleChange.bind(null, id)}
 				/>
 				<div style={container}>

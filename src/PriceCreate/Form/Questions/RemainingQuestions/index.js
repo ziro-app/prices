@@ -3,14 +3,9 @@ import PropTypes from 'prop-types'
 import { subtitle, input, container, radioSelected, radioNotSelected } from './styles'
 
 export default class RemainingQuestions extends Component {
-	state = { openField: '' }
-	handleChange = (id, { target: { value } }) => {
-		this.setState({ openField: value })
-		this.props.updateQuestion(id, value)
-	}
+	handleChange = (id, { target: { value } }) => this.props.updateQuestion(id, value)
 	render = () => {
 		const { type, options, id, question } = this.props
-		const openField = this.state.openField
 		return (
 			<Fragment>
 				<div style={subtitle}>

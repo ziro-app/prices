@@ -4,9 +4,12 @@ import { subtitle, input, container, radioSelected, radioNotSelected } from './s
 
 export default class RemainingQuestions extends Component {
 	state = { openField: '' }
-	handleChange = ({ target: { value } }) => this.setState({ openField: value })
+	handleChange = (id, { target: { value } }) => {
+		this.setState({ openField: value })
+		this.props.updateQuestion(id, value)
+	}
 	render = () => {
-		const { type, options, id, handleChange, question } = this.props
+		const { type, options, id, question } = this.props
 		const openField = this.state.openField
 		return (
 			<Fragment>
@@ -15,10 +18,10 @@ export default class RemainingQuestions extends Component {
 				</div>
 				<input
 					style={input}
-					type='number'
+					type='text'
 					placeholder='Digite ou selecione abaixo'
 					value={openField}
-					onChange={this.handleChange}
+					onChange={this.handleChange.bind(null, id)}
 				/>
 				<div style={container}>
 					{options.map((option, index) =>
@@ -29,7 +32,7 @@ export default class RemainingQuestions extends Component {
 								id={`${id}-${option}`}
 								name={id}
 								value={option}
-								onChange={handleChange.bind(null, id)}
+								onChange={this.handleChange.bind(null, id)}
 								checked={question === option}
 							/>
 							<label
@@ -50,6 +53,6 @@ RemainingQuestions.propTypes = {
 	type: PropTypes.string.isRequired,
 	options: PropTypes.array.isRequired,
 	id: PropTypes.string.isRequired,
-	handleChange: PropTypes.func.isRequired,
+	updateQuestion: PropTypes.func.isRequired,
 	question: PropTypes.node.isRequired
 }

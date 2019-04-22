@@ -9,7 +9,6 @@ import RemainingQuestions from './RemainingQuestions/index'
 import { invalid } from './styles'
 
 export default class Questions extends Component {
-	handleChange = (id, { target: { value } }) => this.props.updateQuestion(id, value)
 	render = () => {
 		const { suppliers, supplier, products, pageIndex } = this.props.state
 		const { product } = this.props.params
@@ -27,7 +26,7 @@ export default class Questions extends Component {
 			return <div style={invalid}>Fabricante inválido <br/> Verifique URL digitada</div>
 		if (!productIsValid)
 			return <div style={invalid}>Produto inválido <br/> Verifique URL digitada</div>
-		return <RemainingQuestions type={type} options={optionsList} id={id} handleChange={this.handleChange} question={question} />
+		return <RemainingQuestions type={type} options={optionsList} id={id} updateQuestion={this.props.updateQuestion} question={question} />
 	}
 }
 

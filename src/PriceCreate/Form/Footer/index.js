@@ -6,7 +6,8 @@ import { containerOne, containerTwo, secondary, primary } from './styles'
 
 const Footer = ({ state, updateIndex, updateClipboard, params: { product } }) => {
 	const {
-		labelSecondary, labelPrimary, back, forward, supplierIsValid, productIsValid, pageIndex, search
+		labelSecondary, labelPrimary, back, forward, supplierIsValid, productIsValid, pageIndex,
+		search, priceIsValid
 	} = getRenderVariables(state, product)
 	if (product && (!supplierIsValid || !productIsValid))
 		return null
@@ -14,6 +15,17 @@ const Footer = ({ state, updateIndex, updateClipboard, params: { product } }) =>
 		return (
 			<div style={containerOne}>
 				<Link to={forward} onClick={updateIndex.bind(null, 'next', supplierIsValid)}>
+					<input type='submit' style={primary} value={labelPrimary} />
+				</Link>
+			</div>
+		)
+	if (pageIndex > 0 && !priceIsValid)
+		return (
+			<div style={containerTwo}>
+				<Link style={{ overflow: 'hidden' }} to={back} onClick={pageIndex === 0 ? updateClipboard.bind(null, forward) : updateIndex.bind(null, 'prev', supplierIsValid)}>
+					<input type='submit' style={secondary} value={labelSecondary} />
+				</Link>
+				<Link to={forward} onClick={null}>
 					<input type='submit' style={primary} value={labelPrimary} />
 				</Link>
 			</div>

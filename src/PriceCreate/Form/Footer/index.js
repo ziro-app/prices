@@ -25,7 +25,7 @@ const Footer = ({ state, updateIndex, updateClipboard, params: { product } }) =>
 				<Link style={{ overflow: 'hidden' }} to={back} onClick={pageIndex === 0 ? updateClipboard.bind(null, forward) : updateIndex.bind(null, 'prev', supplierIsValid)}>
 					<input type='submit' style={secondary} value={labelSecondary} />
 				</Link>
-				<Link to={forward} onClick={null}>
+				<Link to={'#'} onClick={null}>
 					<input type='submit' style={primary} value={labelPrimary} />
 				</Link>
 			</div>

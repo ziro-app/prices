@@ -12,12 +12,8 @@ const getRenderVariables = (state, product) => {
 	const nextLink = next ? `/${removeSpaces(supplier)}/${next}${search}` : '#'
 	const back = pageIndex === 0 || !supplierIsValid ? '#' : prevLink
 	const id = `${products[pageIndex].name}-${products[pageIndex].type}`
-	const price = state[id] ? state[id].replace(',','.') : ''
-	console.log(id)
-	console.log(state[id])
-	console.log(price)
-	const priceIsValid = Boolean(parseFloat(price))
-	console.log(priceIsValid)
+	const price = state[id] && state[id].trim() ? state[id].replace(',','.') : null
+	const priceIsValid = state[id] === 'N/A' ? true : price && !isNaN(price)
 	const forward = supplierIsValid ? nextLink : '#'
 	return {
 		labelSecondary, labelPrimary, back, forward, supplierIsValid, productIsValid, pageIndex,

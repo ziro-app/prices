@@ -9,7 +9,7 @@ import RemainingQuestions from './RemainingQuestions/index'
 import { invalid } from './styles'
 
 const Questions = ({ state, updateDropdown, updateQuestion, url, params: { product } }) => {
-	const { suppliers, supplier, products, pageIndex } = state
+	const { suppliers, supplier, products, pageIndex, error_price } = state
 	const { name, type, options } = products[pageIndex]
 	const id = `${name}-${type}`
 	const question = state[id] === 'N/A' ? 'N/A' : state[id]
@@ -22,7 +22,7 @@ const Questions = ({ state, updateDropdown, updateQuestion, url, params: { produ
 		return <div style={invalid}>Fabricante inválido <br/> Verifique URL digitada</div>
 	if (!productIsValid)
 		return <div style={invalid}>Produto inválido <br/> Verifique URL digitada</div>
-	return <RemainingQuestions type={type} options={optionsList} id={id} updateQuestion={updateQuestion} question={question} />
+	return <RemainingQuestions type={type} options={optionsList} id={id} updateQuestion={updateQuestion} question={question} error_price={error_price} />
 }
 
 Questions.propTypes = {

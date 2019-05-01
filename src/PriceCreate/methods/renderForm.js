@@ -14,6 +14,7 @@ const renderForm = that => uiState => {
 				updateDropdown={that.updateDropdown}
 				updateQuestion={that.updateQuestion}
 				updateClipboard={that.updateClipboard}
+				updateErrorPrice={that.updateErrorPrice}
 				url={url}
 				params={params}
 			/>,

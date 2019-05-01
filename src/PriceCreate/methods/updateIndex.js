@@ -1,6 +1,6 @@
 const updateIndex = that => (navigation, supplierIsValid) => {
 	if (supplierIsValid) {
-		that.setState({ error_supplier: '' })
+		that.setState({ error_supplier: '', error_price: '' })
 		const increment = navigation === 'next' ? 1 : -1
 		const newIndex = that.state.pageIndex + increment
 		const maxValue = that.state.products.length - 1

@@ -6,7 +6,7 @@ import { subtitle, input, container, radioSelected, radioNotSelected } from './s
 export default class RemainingQuestions extends Component {
 	handleChange = (id, { target: { value } }) => this.props.updateQuestion(id, value)
 	render = () => {
-		const { type, options, id, question } = this.props
+		const { type, options, id, question, error_price } = this.props
 		return (
 			<Fragment>
 				<div style={subtitle}>
@@ -41,7 +41,7 @@ export default class RemainingQuestions extends Component {
 					)}
 				</div>
 				<div style={{ display: 'flex', justifyContent: 'center' }}>
-					<ErrorMessage message={'Preço inválido'} />
+					<ErrorMessage message={error_price} />
 				</div>
 			</Fragment>
 		)

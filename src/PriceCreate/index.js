@@ -7,6 +7,7 @@ import fetchInitialData from './methods/fetchInitialData'
 import updateIndex from './methods/updateIndex'
 import updateDropdown from './methods/updateDropdown'
 import updateQuestion from './methods/updateQuestion'
+import updateErrorPrice from './methods/updateErrorPrice'
 import updateClipboard from './methods/updateClipboard'
 // import submitForm from './methods/submitForm'
 import renderForm from './methods/renderForm'
@@ -23,7 +24,8 @@ export default class PriceCreate extends Component {
 		/* user inputs */
 		supplier: '',
 		/* error messages */
-		error_supplier: ''
+		error_supplier: '',
+		error_price: ''
 	}
 	/*-- methods --*/
 	cancelTokenSource = CancelToken.source()
@@ -32,6 +34,7 @@ export default class PriceCreate extends Component {
 	updateIndex = updateIndex(this)
 	updateDropdown = updateDropdown(this)
 	updateQuestion = updateQuestion(this)
+	updateErrorPrice = updateErrorPrice(this)
 	updateClipboard = updateClipboard(this)
 	// submitForm = submitForm(this)
 	renderForm = renderForm(this)

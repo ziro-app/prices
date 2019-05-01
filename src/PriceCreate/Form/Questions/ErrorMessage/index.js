@@ -11,7 +11,7 @@ const ErrorMessage = ({ message, children }) =>
 
 ErrorMessage.propTypes = {
 	message: PropTypes.string.isRequired,
-	children: PropTypes.element.isRequired
+	children: PropTypes.element
 }
 
 export default ErrorMessage

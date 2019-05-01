@@ -1,5 +1,6 @@
 import React, { Fragment, Component } from 'react'
 import PropTypes from 'prop-types'
+import ErrorMessage from '../ErrorMessage/index'
 import { subtitle, input, container, radioSelected, radioNotSelected } from './styles'
 
 export default class RemainingQuestions extends Component {
@@ -38,6 +39,9 @@ export default class RemainingQuestions extends Component {
 							</label>
 						</div>
 					)}
+				</div>
+				<div style={{ display: 'flex', justifyContent: 'center' }}>
+					<ErrorMessage message={'Preço inválido'} />
 				</div>
 			</Fragment>
 		)

@@ -2,7 +2,7 @@ export const
 
 container = {
 	maxWidth: '400px',
-	margin: '40px auto 60px',
+	margin: '30px auto 60px',
 	padding: '0 10%',
 	display: 'grid',
 	gridTemplateRows: 'auto auto 1fr',
@@ -13,5 +13,5 @@ container = {
 description = {
 	color: 'rgba(48,62,77,0.8)',
 	fontSize: '2.1rem',
-	margin: '0 0 40px'
+	margin: '0 0 25px'
 }

@@ -19,7 +19,7 @@ input = {
 },
 
 subtitle = {
-	fontSize: '1.4rem',
+	fontSize: '1.6rem',
 	color: 'rgba(48,62,77,0.8)',
 	textAlign: 'center'
 },
@@ -27,7 +27,7 @@ subtitle = {
 radioNotSelected = {
 	display: 'block',
 	cursor: 'pointer',
-	padding: '10px 0',
+	padding: '8px 0',
 	margin: '0 0 5px',
 	borderRadius: '5px',
 	textAlign: 'center',

@@ -7,7 +7,7 @@ const Header = ({ title, children }) =>
 	<div style={container}>
 	    <Image
 			cloudName='ziro'
-			width='45'
+			width='35'
 			publicId='logo-round_kxn8sa'
 			version='1508000699'
 			format='png'

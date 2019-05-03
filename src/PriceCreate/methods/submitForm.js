@@ -1,5 +1,3 @@
-// import validateForm from '../utils/validateForm'
-// import generateErrorMessages from '../utils/generateErrorMessages'
 // import sendToBackend from '../utils/sendToBackend'
 
 const submitForm = that => async () => {
@@ -8,13 +6,15 @@ const submitForm = that => async () => {
 		// await sendToBackend(that.state, sale, action)
 		await Promise.resolve('ok')
 		that.changeUiState('SUCCESS')
-		that.setState({
-			pageIndex: 0,
-			search: '',
-			supplier: '',
-			error_supplier: '',
-			error_price: ''
-		})
+		alert('Enviado com sucesso!')
+		that.props.history.push('/')
+		const toUpdate = { pageIndex: 0 }
+		const keys = Object.keys(that.state)
+		for (let i = 0; i < keys.length; i++) {
+			if (!keys[i].match(/pageIndex|uiState|products|suppliers/g))
+				toUpdate[keys[i]] = ''
+		}
+		that.setState(toUpdate)
 	} catch (error) {
 		console.log(error)
 		that.changeUiState('ERROR')

@@ -15,9 +15,10 @@ const getRenderVariables = (state, product) => {
 	const price = state[id] && state[id].trim() ? state[id].replace(',','.') : null
 	const priceIsValid = state[id] === 'N/A' ? true : price && !isNaN(price)
 	const forward = supplierIsValid ? nextLink : '#'
+	const numberOfProducts = products.length
 	return {
 		labelSecondary, labelPrimary, back, forward, supplierIsValid, productIsValid, pageIndex,
-		search, priceIsValid
+		search, priceIsValid, numberOfProducts
 	}
 }
 

@@ -9,7 +9,7 @@ import updateDropdown from './methods/updateDropdown'
 import updateQuestion from './methods/updateQuestion'
 import updateErrorPrice from './methods/updateErrorPrice'
 import updateClipboard from './methods/updateClipboard'
-// import submitForm from './methods/submitForm'
+import submitForm from './methods/submitForm'
 import renderForm from './methods/renderForm'
 
 export default class PriceCreate extends Component {
@@ -36,7 +36,7 @@ export default class PriceCreate extends Component {
 	updateQuestion = updateQuestion(this)
 	updateErrorPrice = updateErrorPrice(this)
 	updateClipboard = updateClipboard(this)
-	// submitForm = submitForm(this)
+	submitForm = submitForm(this)
 	renderForm = renderForm(this)
 	/*-- lifecycle --*/
 	componentDidMount = () => this.fetchInitialData()

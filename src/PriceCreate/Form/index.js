@@ -6,7 +6,7 @@ import Questions from './Questions/index'
 import Footer from './Footer/index'
 import { body } from './styles'
 
-const Form = ({ state, updateIndex, updateDropdown, updateQuestion, updateClipboard, updateErrorPrice, params, url }) =>
+const Form = ({ state, updateIndex, updateDropdown, updateQuestion, updateClipboard, updateErrorPrice, submitForm, params, url }) =>
 	<div style={body}>
 		<Questions
 			state={state}
@@ -20,6 +20,7 @@ const Form = ({ state, updateIndex, updateDropdown, updateQuestion, updateClipbo
 			updateIndex={updateIndex}
 			updateClipboard={updateClipboard}
 			updateErrorPrice={updateErrorPrice}
+			submitForm={submitForm}
 			params={params}
 		/>
 	</div>
@@ -31,6 +32,7 @@ Form.propTypes = {
 	updateQuestion: PropTypes.func.isRequired,
 	updateClipboard: PropTypes.func.isRequired,
 	updateErrorPrice: PropTypes.func.isRequired,
+	submitForm: PropTypes.func.isRequired,
 	url: PropTypes.string.isRequired,
 	params: PropTypes.object.isRequired
 }

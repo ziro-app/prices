@@ -14,7 +14,7 @@ const Footer = ({ state, updateIndex, updateClipboard, updateErrorPrice, submitF
 	if (search && pageIndex === 1)
 		return (
 			<div style={containerOne}>
-				<Link to={forward} onClick={updateIndex.bind(null, 'next', supplierIsValid)}>
+				<Link to={priceIsValid ? forward : '#'} onClick={priceIsValid ? updateIndex.bind(null, 'next', supplierIsValid) : updateErrorPrice}>
 					<input type='submit' style={primary} value={labelPrimary} />
 				</Link>
 			</div>

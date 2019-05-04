@@ -14,4 +14,10 @@ description = {
 	color: 'rgba(48,62,77,0.8)',
 	fontSize: '2.1rem',
 	margin: '0 0 25px'
+},
+
+sub = {
+	color: 'rgba(48,62,77,0.8)',
+	fontSize: '1.6rem',
+	fontWeight: '600'
 }

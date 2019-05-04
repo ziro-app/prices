@@ -10,7 +10,7 @@ const submitForm = that => async () => {
 	if (formIsValid) {
 		try {
 			that.changeUiState('SUBMIT')
-			// await sendToBackend(that.state, sale, action)
+			// await sendToBackend(that.state)
 			await Promise.resolve('ok')
 			that.changeUiState('SUCCESS')
 			alert('Enviado com sucesso!')

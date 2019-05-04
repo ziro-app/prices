@@ -37,7 +37,7 @@ getProducts = (data, index) => {
 		options: value[3]
 	}))
 	const supplier = {
-		name: 'fabricante',
+		name: 'Escolha um fabricante',
 		type: '',
 		prev: '',
 		next: `${products[0].name}-${products[0].type}`,

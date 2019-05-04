@@ -27,10 +27,10 @@ const renderForm = that => uiState => {
 	const ui = uiState !== 'fetching' && uiState !== 'error_fetching' ? 'default' : uiState
 	const pageIndex = that.state.pageIndex
 	const product = that.state.products[pageIndex]
-	const subtitle = that.state.supplier ? that.state.supplier : 'Escolha um fabricante'
-	let title = ''
+	const title = that.state.supplier ? that.state.supplier : 'Fabricante'
+	let subtitle = ''
 	if (product)
-		title = `${product.name} ${product.type}`.toUpperCase()
+		subtitle = `${product.name}`
 	return <Header title={title} subtitle={subtitle}>{componentToRender[ui]}</Header>
 }
 

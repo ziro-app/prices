@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import getRenderVariables from '../../utils/getRenderVariables'
-import { containerOne, containerTwo, secondary, primary, submitted } from './styles'
+import { containerOne, containerTwo, secondary, primary } from './styles'
 
 const Footer = ({ state, updateIndex, updateClipboard, updateErrorPrice, submitForm, params: { product } }) => {
 	const {
@@ -31,18 +31,14 @@ const Footer = ({ state, updateIndex, updateClipboard, updateErrorPrice, submitF
 			</div>
 		)
 	return (
-		<Fragment>
-			{state.uiState === 'submitted' ? <span style={submitted}>Enviado!</span> :
-				<div style={containerTwo}>
-					<Link style={{ overflow: 'hidden' }} to={back} onClick={pageIndex === 0 ? updateClipboard.bind(null, forward) : updateIndex.bind(null, 'prev', supplierIsValid)}>
-						<input type='submit' style={secondary} value={labelSecondary} />
-					</Link>
-					<Link to={pageIndex === numberOfProducts - 1 && search ? '?lock=true' : forward} onClick={pageIndex === numberOfProducts - 1 ? submitForm : updateIndex.bind(null, 'next', supplierIsValid)}>
-						<input type='submit' style={primary} value={labelPrimary} />
-					</Link>
-				</div>
-			}
-		</Fragment>
+		<div style={containerTwo}>
+			<Link style={{ overflow: 'hidden' }} to={back} onClick={pageIndex === 0 ? updateClipboard.bind(null, forward) : updateIndex.bind(null, 'prev', supplierIsValid)}>
+				<input type='submit' style={secondary} value={labelSecondary} />
+			</Link>
+			<Link to={pageIndex === numberOfProducts - 1 && search ? '?lock=true' : forward} onClick={pageIndex === numberOfProducts - 1 ? submitForm : updateIndex.bind(null, 'next', supplierIsValid)}>
+				<input type='submit' style={primary} value={labelPrimary} />
+			</Link>
+		</div>
 	)
 }
 

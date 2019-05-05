@@ -30,7 +30,7 @@ const renderForm = that => uiState => {
 	const title = that.state.supplier ? that.state.supplier : 'Fabricante'
 	let subtitle = ''
 	if (product)
-		subtitle = `${product.name}`
+		subtitle = uiState !== 'submitted' ? `${product.name}` : null
 	return <Header title={title} subtitle={subtitle}>{componentToRender[ui]}</Header>
 }
 

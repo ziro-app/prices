@@ -14,13 +14,16 @@ const submitForm = that => async () => {
 			await Promise.resolve('ok')
 			that.changeUiState('SUCCESS')
 			alert('Enviado com sucesso!')
-			that.props.history.push('/')
-			const toUpdate = { pageIndex: 0 }
-			for (let i = 0; i < keys.length; i++) {
-				if (!keys[i].match(/pageIndex|uiState|products|suppliers/g))
-					toUpdate[keys[i]] = ''
+			if (!that.state.search) {
+				that.props.history.push('/')
+				that.changeUiState('INPUT')
+				const toUpdate = { pageIndex: 0 }
+				for (let i = 0; i < keys.length; i++) {
+					if (!keys[i].match(/pageIndex|uiState|products|suppliers/g))
+						toUpdate[keys[i]] = ''
+				}
+				that.setState(toUpdate)
 			}
-			that.setState(toUpdate)
 		} catch (error) {
 			console.log(error)
 			that.changeUiState('ERROR')

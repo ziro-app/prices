@@ -10,7 +10,7 @@ export default class RemainingQuestions extends Component {
 		return (
 			<Fragment>
 				<div style={subtitle}>
-					Qual o {type === 'min' ? 'MENOR' : 'MAIOR'} preço deste produto?
+					Qual o {type === 'min' ? <u style={{ fontWeight: '500'}}>MENOR</u> : <u style={{ fontWeight: '500'}}>MAIOR</u>} preço deste produto?
 				</div>
 				<input
 					style={input}

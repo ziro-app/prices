@@ -14,7 +14,7 @@ const Footer = ({ state, updateIndex, updateClipboard, updateErrorPrice, submitF
 	if (search && pageIndex === 1)
 		return (
 			<div style={containerOne}>
-				<Link to={priceIsValid ? forward : '#'} onClick={priceIsValid ? updateIndex.bind(null, 'next', supplierIsValid) : updateErrorPrice}>
+				<Link to={priceIsValid ? forward : search ? '?lock=true' : '#'} onClick={priceIsValid ? updateIndex.bind(null, 'next', supplierIsValid) : updateErrorPrice}>
 					<input type='submit' style={primary} value={labelPrimary} />
 				</Link>
 			</div>
@@ -25,7 +25,7 @@ const Footer = ({ state, updateIndex, updateClipboard, updateErrorPrice, submitF
 				<Link style={{ overflow: 'hidden' }} to={back} onClick={pageIndex === 0 ? updateClipboard.bind(null, forward) : updateIndex.bind(null, 'prev', supplierIsValid)}>
 					<input type='submit' style={secondary} value={labelSecondary} />
 				</Link>
-				<Link to={'#'} onClick={updateErrorPrice}>
+				<Link to={search ? '?lock=true' : '#'} onClick={updateErrorPrice}>
 					<input type='submit' style={primary} value={labelPrimary} />
 				</Link>
 			</div>
@@ -37,7 +37,7 @@ const Footer = ({ state, updateIndex, updateClipboard, updateErrorPrice, submitF
 					<Link style={{ overflow: 'hidden' }} to={back} onClick={pageIndex === 0 ? updateClipboard.bind(null, forward) : updateIndex.bind(null, 'prev', supplierIsValid)}>
 						<input type='submit' style={secondary} value={labelSecondary} />
 					</Link>
-					<Link to={forward} onClick={pageIndex === numberOfProducts - 1 ? submitForm : updateIndex.bind(null, 'next', supplierIsValid)}>
+					<Link to={pageIndex === numberOfProducts - 1 && search ? '?lock=true' : forward} onClick={pageIndex === numberOfProducts - 1 ? submitForm : updateIndex.bind(null, 'next', supplierIsValid)}>
 						<input type='submit' style={primary} value={labelPrimary} />
 					</Link>
 				</div>

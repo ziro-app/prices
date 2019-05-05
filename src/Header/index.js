@@ -15,7 +15,7 @@ const Header = ({ title, subtitle, children }) =>
 			alt='logo'
 	    />
 		<h1 style={description}>{title}</h1>
-		<span style={sub}>{subtitle.toUpperCase()}</span>
+		<span style={sub}>{subtitle}</span>
 		{children}
 	</div>
 

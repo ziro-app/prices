@@ -30,7 +30,7 @@ const renderForm = that => uiState => {
 	const title = that.state.supplier ? that.state.supplier : 'Fabricante'
 	let subtitle = ''
 	if (product)
-		subtitle = uiState !== 'submitted' ? `${product.name}` : null
+		subtitle = uiState !== 'submitted' ? `${product.name.toUpperCase()}` : ''
 	return <Header title={title} subtitle={subtitle}>{componentToRender[ui]}</Header>
 }
 

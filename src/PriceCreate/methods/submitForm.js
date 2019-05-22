@@ -1,4 +1,4 @@
-// import sendToBackend from '../utils/sendToBackend'
+import sendToBackend from '../utils/sendToBackend'
 
 const submitForm = that => async () => {
 	const keys = Object.keys(that.state)
@@ -10,8 +10,7 @@ const submitForm = that => async () => {
 	if (formIsValid) {
 		try {
 			that.changeUiState('SUBMIT')
-			// await sendToBackend(that.state)
-			await Promise.resolve('ok')
+			await sendToBackend(that.state)
 			that.changeUiState('SUCCESS')
 			alert('Enviado com sucesso!')
 			if (!that.state.search) {

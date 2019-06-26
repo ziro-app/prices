@@ -9,8 +9,7 @@ containerOne = {
 containerTwo = {
 	display: 'grid',
 	gridTemplateColumns: '1fr 1fr',
-	gridColumnGap: '10px',
-	alignItems: 'flex-end'
+	gridColumnGap: '10px'
 },
 
 secondary = {
@@ -35,7 +34,7 @@ primary = {
 	MozAppearance: 'none',
 	outline: 'none',
 	cursor: 'pointer',
-	border: 'none',
+	border: '1px solid rgba(48,62,77,0.1)',
 	borderRadius: '20px',
 	width: '100%',
 	padding: '10px 25px',

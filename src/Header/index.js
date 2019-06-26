@@ -8,8 +8,8 @@ const Header = ({ title, subtitle, children }) =>
 	    <Image
 			cloudName='ziro'
 			width='35'
-			publicId='logo-round_kxn8sa'
-			version='1508000699'
+			publicId='logo-app_fwothv'
+			version='1561160634'
 			format='png'
 			secure='true'
 			alt='logo'

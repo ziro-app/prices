@@ -7,6 +7,9 @@ const sendToBackend = async data => {
 	const { data: message } = await post(`${process.env.API_URL}`, dataToSubmit)
 	if (message !== 'Success')
 		await Promise.reject(`Error submitting form. At sendToBackend: ${message}`)
+	const { data: message2 } = await post(`${process.env.API_URL}`, dataToSubmit)
+	if (message2 !== 'Success')
+		await Promise.reject(`Error submitting form. At sendToBackend: ${message2}`)
 }
 
 export default sendToBackend

@@ -22,7 +22,7 @@ const Questions = ({ state, updateDropdown, updateQuestion, url, params: { produ
 		return <div style={invalid}>Fabricante inválido <br/> Verifique URL digitada</div>
 	if (!productIsValid)
 		return <div style={invalid}>Produto inválido <br/> Verifique URL digitada</div>
-	return <RemainingQuestions type={type} options={optionsList} id={id} updateQuestion={updateQuestion} question={question} error_price={error_price} />
+	return <RemainingQuestions type={type} options={optionsList} id={id} updateQuestion={updateQuestion} question={question} error_price={error_price} uiState={state.uiState} />
 }
 
 Questions.propTypes = {

@@ -28,7 +28,7 @@ export default class RemainingQuestions extends Component {
 								id={`${id}-${option}`}
 								name={id}
 								value={option}
-								onChange={this.handleChange.bind(null, id)}
+								onChange={this.props.uiState === 'submitting' ? null : this.handleChange.bind(null, id)}
 								checked={question === option}
 							/>
 							<label

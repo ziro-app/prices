@@ -33,9 +33,16 @@ const Footer = ({ state, updateIndex, updateClipboard, updateErrorPrice, submitF
 		)
 	return (
 		<div style={containerTwo}>
-			<Link style={{ overflow: 'hidden' }} to={back} onClick={pageIndex === 0 ? updateClipboard.bind(null, forward) : updateIndex.bind(null, 'prev', supplierIsValid)}>
-				<input type='submit' style={secondary} value={labelSecondary} />
-			</Link>
+			{state.uiState === 'submitting'
+				?
+					<Link style={{ overflow: 'hidden' }} to='#' onClick={null}>
+						<input type='submit' style={secondary} value={labelSecondary} />
+					</Link>
+				:
+					<Link style={{ overflow: 'hidden' }} to={back} onClick={pageIndex === 0 ? updateClipboard.bind(null, forward) : updateIndex.bind(null, 'prev', supplierIsValid)}>
+						<input type='submit' style={secondary} value={labelSecondary} />
+					</Link>
+			}
 			{pageIndex === numberOfProducts - 1
 				?
 					<Submit uiState={state.uiState} submitForm={submitForm} />

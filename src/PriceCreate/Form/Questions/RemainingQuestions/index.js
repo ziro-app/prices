@@ -53,5 +53,6 @@ RemainingQuestions.propTypes = {
 	options: PropTypes.array.isRequired,
 	id: PropTypes.string.isRequired,
 	updateQuestion: PropTypes.func.isRequired,
-	question: PropTypes.node.isRequired
+	question: PropTypes.node.isRequired,
+	uiState: PropTypes.string.isRequired
 }

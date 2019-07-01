@@ -17,7 +17,7 @@ export default class RemainingQuestions extends Component {
 					type='text'
 					placeholder='Digite ou selecione abaixo'
 					value={question}
-					onChange={this.handleChange.bind(null, id)}
+					onChange={this.props.uiState === 'submitting' ? null : this.handleChange.bind(null, id)}
 				/>
 				<div style={container}>
 					{options.map((option, index) =>
